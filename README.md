@@ -1,4 +1,9 @@
 # Mini-CSDN
+
+<img src="./README.assets/image-20230812113345437.png" alt="image-20230812113345437" />
+
+<img src="./README.assets/image-20230812113415672.png" alt="image-20230812113415672" />
+
 Homework of Programing and Training. A tiny website built by Django
 
 - Crawled a total of 5,380 blogs from CSDN webpage to local location.  
