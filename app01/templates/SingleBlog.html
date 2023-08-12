@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='{% static "plugins/bootstrap-3.4.1/css/bootstrap.css" %}'>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {
+            height: 1500px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #222223;
+            height: 100%;
+        }
+
+        /*调整图片大小*/
+        img {
+            max-width: 730px;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #848484;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+
+        .affix {
+            top: 0;
+            width: 100%;
+            z-index: 9999 !important;
+        }
+
+        .affix + .container-fluid {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            <h4>{{ context }}{{ post_test }}</h4>
+            <ul class="nav nav-pills nav-stacked navbar-inverse">
+                <li><a href="/start">主页</a></li>
+                <li class="active"><a href="#">博文内容</a></li>
+
+            </ul>
+            <br>
+            {#            <div class="input-group">#}
+            {#                <input type="text" class="form-control" placeholder="Search Blog..">#}
+            {#                <span class="input-group-btn">#}
+            {#          <button class="btn btn-default" type="button">#}
+            {#            <span class="glyphicon glyphicon-search"></span>#}
+            {#          </button>#}
+            {#        </span>#}
+            {#            </div>#}
+
+            <div class="thumbnail">
+
+                <img src={{ Data.AuthorPic }} class="img-circle" height="150" width="150" alt="...">
+                <a
+                    href={{ Data.Author_link }}>
+                <div class="caption text-center">
+                    <h4 style="background:#006fff; color:#ffffff"><br>{{ Data.Author }}<br><br></h4>
+                    <h6 style="background:#006fff; color:#ffffff"><br>粉丝数 {{ Data.Fans }}<br><br></h6>
+                        <br>
+
+
+                </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-sm-10">
+
+
+            <hr>
+            <h1>{{ Data.Title }}</h1>
+            {#            <div>#}
+            {#                <img src={% static {{ Data.Author_link }} %} class="img-circle" height="65" width="65">#}
+            {#                <img src={{ Data.AuthorPic }} class="img-circle" height="65" width="65">#}
+            {#                <h4>{{ Data.Author }}</h4>#}
+            {#            </div>#}
+
+            <h5><span class="glyphicon glyphicon-time"></span> Post by <a
+                    href={{ Data.Author_link }}>{{ Data.Author }}</a>, 日期:{{ Data.Date }},
+                时间:{{ Data.Time }}</h5>
+            <h5>{% for each in Data.language %}<span class="label label-primary">{{ each }}</span> {% endfor %}<span
+                    class="label label-success">阅读 {{ Data.Views }}</span> <span
+                    class="label label-info">评论 {{ Com.1 }}</span> <span
+                    class="label label-warning">点赞{{ Data.Likes }}</span> <span
+                    class="label label-danger">收藏{{ Data.Collections }}</span>
+            </h5>
+            <!--            此处粘贴正文内容-->
+            {{ Data.Content |safe }}
+
+            <br>
+            <p>文章原载于：<a href={{ Data.Connection }}>{{ Data.Connection }}</a></p>
+            <hr>
+
+            <h4>写下你的评论:</h4>
+            <form role="form">
+                <div class="form-group">
+                    <textarea type="text" name="post_test" class="form-control" rows="3" required></textarea>
+
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+            <br><br>
+
+            <p><span class="badge">{{ Com.1 }}</span> 评论:</p><br>
+
+
+            {% for each in Com.0 %}
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h4>热心网友
+                            <small>发表于 {{ each.1 }}</small></h4>
+                        <p>{{ each.0 }}</p>
+                        <a href="{% url 'link_blog' %}?did={{ each.1 }}"><h4>删除</h4></a>
+                        {#                        <form method='get' action="/link_blog/?did={{each}}">#}
+                        {#                             <button type="submit" class="btn btn-danger">Delete</button>#}
+                        {#                        </form>#}
+                        {#                        <input type="button" class="btn btn-danger" name="Delete" value="Delete"  href="/link_blog/?did={{each}}">#}
+                        <br>
+                    </div>
+                </div>
+
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid">
+    <p>THU 2022 Summer class homework. Designed by Zrp</p>
+</footer>
+
+</body>
+</html>

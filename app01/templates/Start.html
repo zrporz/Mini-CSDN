@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 默认的导航栏</title>
+    <link rel="stylesheet" href="{% static "plugins/bootstrap-3.4.1/css/bootstrap.css" %}">
+    <script src="{% static "plugins/bootstrap-3.4.1/js/jquery.js" %}"></script>
+    <script src="{% static "plugins/bootstrap-3.4.1/js/bootstrap.js" %}"></script>
+    <style>
+        .jumbotron {
+            background: url({% static 'img/background/BachGround2.jfif' %});
+            background-size: 100%;
+            font-family: "Helvetica", cursive, serif, sans-serif;;
+        }
+
+        .affix {
+            top: 0;
+            width: 100%;
+            z-index: 9999 !important;
+        }
+
+        .affix + .container-fluid {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+
+
+{#<div style="background-image: url({% static 'img/background/BingWallpaper.jpg' %});">#}
+<div class="center-block">
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="text-center text-capitalize">
+                <h1>Mini-CSDN </h1>
+            </div>
+            {#    <div class="row g-2">#}
+
+            {#        <div class="backgroundImg" id="backgroundImg">#}
+            {#            <img class="picture" id="backgroundImg_picture" style="height:108px;"src={% static "img/background/BingWallpaper.jpg"%}>#}
+
+            <form action="/search/">
+                {#        <div class="col-lg-6">#}
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">排序方式<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="radio" name="order" id="flexRadioDefault1"
+                                       VALUE="1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    按时间
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="radio" name="order" id="flexRadioDefault2"
+                                       VALUE="2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    按热度
+                                </label>
+                            </div>
+                        </ul>
+                    </div><!-- /btn-group -->
+
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">语言 <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            {#                <div class="container">#}
+                            {#                    <div class="row row-cols-4 row-cols-lg-2 g-2 g-lg-3">#}
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="Cpp"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    C++
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="C"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    C#
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="Python"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Python
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="Java"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Java
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked"
+                                       name="JavaScript"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    JavaScript
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="SQL"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    SQL
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="PHP"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    PHP
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="Others"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Others
+                                </label>
+                            </div>
+                            {#                    </div>#}
+                            {#                </div>#}
+                        </ul>
+                    </div><!-- /btn-group -->
+
+
+                    <input type="text" class="form-control" aria-label="..." name="search_content">
+                    <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">搜索</button>
+            </span>
+
+                </div><!-- /input-group -->
+            </form>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="297">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">主页</a></li>
+            <li><a href="/start">换一批</a></li>
+            <li><a href="/show/?category=All">所有博客</a></li>
+            <li><a href="/category">博客分类</a></li>
+        </ul>
+    </nav>
+    <div style="background-image: url({% static 'img/background/BingWallpaper.jpg' %});">
+        <div class="container-fluid" >
+
+            <div class="container">
+                <br>
+                <br>
+{#                <input type=button value=换一批 onclick="location.reload()">#}
+                <ul class="list-group">
+
+                    {% for item,com,i in Data %}
+                        <a href="{% url 'link_blog' %}?id={{ i }}">
+                            <li class="list-group-item">
+                                <div class="col">
+
+                                    <div class="pull-left">
+                                        <strong>{{ item.Title }}</strong>
+
+                                    </div>
+
+                                    <div class="pull-right">
+                                        作者: {{ item.Author }}
+                                        {{ item.Date }}
+                                        {{ item.Time }}
+                                    </div>
+                                </div>
+                                <br>
+
+                                <p class="text-muted">{{ item.Brief }}
+                                </p>
+
+                                <div class=" col-sm-3">
+                                    {#                        <span class="label label-success">阅读 {{ item.Views }}</span>#}
+                                    <small>阅读:{{ item.Views }}</small>
+
+
+                                </div>
+                                <div class=" col-sm-3">
+                                    {#                        <span class="label label-info">评论 {{ item.Comments }}</span>#}
+                                    <small>评论:{{ com }}                    </small>
+
+                                </div>
+                                <div class=" col-sm-3">
+                                    {#                        <span class="label label-warning">点赞 {{ item.Likes }}</span>#}
+                                    <small>点赞:{{ item.Likes }}</small>
+                                </div>
+                                <div class=" col-sm-3">
+                                    {#                        <span class="label label-danger">收藏 {{ item.Collections }}</span>#}
+                                    <small> 收藏:{{ item.Collections }}</small>
+                                </div>
+
+                                <br>
+                            </li>
+                            <br>
+                        </a>
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

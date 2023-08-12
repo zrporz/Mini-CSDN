@@ -1,0 +1,320 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 默认的导航栏</title>
+    <link rel="stylesheet" href="{% static "plugins/bootstrap-3.4.1/css/bootstrap.css" %}">
+    <script src="{% static "plugins/bootstrap-3.4.1/js/jquery.js" %}"></script>
+    <script src="{% static "plugins/bootstrap-3.4.1/js/bootstrap.js" %}"></script>
+    <style>
+        .jumbotron {
+            background: url({% static 'img/background/BachGround2.jfif' %});
+            background-size: 100%;
+            font-family: "Helvetica", cursive, serif, sans-serif;;
+        }
+
+        .affix {
+            top: 0;
+            width: 100%;
+            z-index: 9999 !important;
+        }
+
+        .affix + .container-fluid {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+
+<br>
+
+
+<div class="center-block">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="text-center text-capitalize">
+                <h1>Mini-CSDN </h1>
+            </div>
+            {#    <div class="row g-2">#}
+
+            {#        <div class="backgroundImg" id="backgroundImg">#}
+            {#            <img class="picture" id="backgroundImg_picture" style="height:108px;"src={% static "img/background/BingWallpaper.jpg"%}>#}
+
+            <form action="/search/">
+                {#        <div class="col-lg-6">#}
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">排序方式<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="radio" name="order" id="flexRadioDefault1"
+                                       VALUE="1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    按时间
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="radio" name="order" id="flexRadioDefault2"
+                                       VALUE="2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    按热度
+                                </label>
+                            </div>
+                        </ul>
+                    </div><!-- /btn-group -->
+
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">语言 <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            {#                <div class="container">#}
+                            {#                    <div class="row row-cols-4 row-cols-lg-2 g-2 g-lg-3">#}
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="Cpp"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    C++
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="C"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    C#
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="Python"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Python
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="Java"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Java
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked"
+                                       name="JavaScript"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    JavaScript
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="SQL"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    SQL
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="PHP"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    PHP
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <b>&nbsp</b>
+                                <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="Others"
+                                       value="1">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Others
+                                </label>
+                            </div>
+                            {#                    </div>#}
+                            {#                </div>#}
+                        </ul>
+                    </div><!-- /btn-group -->
+
+
+                    <input type="text" class="form-control" aria-label="..." name="search_content">
+                    <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">搜索</button>
+            </span>
+
+                </div><!-- /input-group -->
+            </form>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="297">
+        <ul class="nav navbar-nav">
+            <li><a href="/start">主页</a></li>
+            <li><a href="/show/?category=All">所有博客</a></li>
+            <li><a href="/category">博客分类</a></li>
+            <li class="active"><a href="/#">关键词: {{ search_content }}</a></li>
+        </ul>
+    </nav>
+    <div style="background-image: url({% static 'img/background/BingWallpaper.jpg' %});">
+        <div class="container">
+            {#    <div class="row g-2">#}
+            <br>
+
+            <ul class="list-group">
+                <li class="list-group-item"><div class="text-center">共检索到 {{ search_num }} 条博客， 检索耗时 {{ time_used }} 毫秒</li>
+                {% for item,com,i in Data %}
+                    <br>
+                    <a href="{% url 'link_blog' %}?id={{ i }}">
+                        <li class="list-group-item">
+                            <div class="col">
+
+                                <div class="pull-left">
+                                    <strong>{{ item.Title }}</strong>
+
+                                </div>
+
+                                <div class="pull-right">
+                                    作者: {{ item.Author }}
+                                    {{ item.Date }}
+                                    {{ item.Time }}
+                                </div>
+                            </div>
+                            <br>
+
+                            <p class="text-muted">{{ item.Brief }}
+                            </p>
+
+                            <div class=" col-sm-3">
+                                {#                        <span class="label label-success">阅读 {{ item.Views }}</span>#}
+                                <small>阅读:{{ item.Views }}</small>
+
+
+                            </div>
+                            <div class=" col-sm-3">
+                                {#                        <span class="label label-info">评论 {{ item.Comments }}</span>#}
+                                <small>评论:{{ com }}                    </small>
+
+                            </div>
+                            <div class=" col-sm-3">
+                                {#                        <span class="label label-warning">点赞 {{ item.Likes }}</span>#}
+                                <small>点赞:{{ item.Likes }}</small>
+                            </div>
+                            <div class=" col-sm-3">
+                                {#                        <span class="label label-danger">收藏 {{ item.Collections }}</span>#}
+                                <small> 收藏:{{ item.Collections }}</small>
+                            </div>
+
+                            <br>
+                        </li>
+                    </a>
+
+                {% endfor %}
+
+            </ul>
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination" id="pager">
+                            {% if Data.has_previous %}
+                                <li class="active">
+                                    <a href="/search/?page={{ Data.previous_page_number }}&Cpp={{ lan_dict.Cpp }}&C={{ lan_dict.C }}&Java={{ lan_dict.Java }}&JavaScript={{ lan_dict.JavaScript }}&SQL={{ lan_dict.SQL }}&PHP={{ lan_dict.PHP }}&Python={{ lan_dict.Python }}&Others={{ lan_dict.Others }}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true"><<</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="disabled">
+                                    <span aria-hidden="true"><<</span>
+                                </li>
+                            {% endif %}
+                            {% if page_end == 1 %}
+                                <li class="active"><a class="selected"
+                                                      href="/search/?page={{ Data.number }}&Cpp={{ lan_dict.Cpp }}&C={{ lan_dict.C }}&Java={{ lan_dict.Java }}&JavaScript={{ lan_dict.JavaScript }}&SQL={{ lan_dict.SQL }}&PHP={{ lan_dict.PHP }}&Python={{ lan_dict.Python }}&Others={{ lan_dict.Others }}">{{ num }}</a>
+                                </li>
+
+                            {% elif page_end == 2 or  page_end == 3 %}
+                                {% for num in Data.paginator.page_range %}
+                                    {% if num == Data.number %}
+                                        <li class="active"><a class="selected"
+                                                              href="/search/?page={{ num }}&Cpp={{ lan_dict.Cpp }}&C={{ lan_dict.C }}&Java={{ lan_dict.Java }}&JavaScript={{ lan_dict.JavaScript }}&SQL={{ lan_dict.SQL }}&PHP={{ lan_dict.PHP }}&Python={{ lan_dict.Python }}&Others={{ lan_dict.Others }}">{{ num }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="item"><a class="selected"
+                                                            href="/search/?page={{ num }}&Cpp={{ lan_dict.Cpp }}&C={{ lan_dict.C }}&Java={{ lan_dict.Java }}&JavaScript={{ lan_dict.JavaScript }}&SQL={{ lan_dict.SQL }}&PHP={{ lan_dict.PHP }}&Python={{ lan_dict.Python }}&Others={{ lan_dict.Others }}">{{ num }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                {% for num in Data.paginator.page_range %}
+                                    {% if num == Data.number %}
+                                        <li class="active"><a class="selected"
+                                                              href="/search/?page={{ num }}&Cpp={{ lan_dict.Cpp }}&C={{ lan_dict.C }}&Java={{ lan_dict.Java }}&JavaScript={{ lan_dict.JavaScript }}&SQL={{ lan_dict.SQL }}&PHP={{ lan_dict.PHP }}&Python={{ lan_dict.Python }}&Others={{ lan_dict.Others }}">{{ num }}</a>
+                                        </li>
+                                    {% elif num == page_left or num == page_right or num == 1 or num == page_end %}
+                                        <li class="item"><a class="selected"
+                                                            href="/search/?page={{ num }}&Cpp={{ lan_dict.Cpp }}&C={{ lan_dict.C }}&Java={{ lan_dict.Java }}&JavaScript={{ lan_dict.JavaScript }}&SQL={{ lan_dict.SQL }}&PHP={{ lan_dict.PHP }}&Python={{ lan_dict.Python }}&Others={{ lan_dict.Others }}">{{ num }}</a>
+                                        </li>
+                                    {% elif num == ell_left or num == ell_right %}
+                                        <li class="item"><a href="#">...<span class="sr-only">(current)</span></a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            {% if Data.has_next %}
+                                <li class="active">
+                                    <a href="/search/?page={{ Data.next_page_number }}&Cpp={{ lan_dict.Cpp }}&C={{ lan_dict.C }}&Java={{ lan_dict.Java }}&JavaScript={{ lan_dict.JavaScript }}&SQL={{ lan_dict.SQL }}&PHP={{ lan_dict.PHP }}&Python={{ lan_dict.Python }}&Others={{ lan_dict.Others }}"
+                                       aria-label="Next">
+                                        <span aria-hidden="true">>></span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="disabled">
+                                    <span aria-hidden="true">>></span>
+                                </li>
+                            {% endif %}
+                        </ul>
+
+                    </nav>
+                </div>
+                <br>
+                <div class=" col-xs-2 ">
+                    <form action="/search/">
+{#                        <button class="btn btn-default btn-sm">跳转至</button>#}
+{#                        <h6 style="background:#000000; color:#ffffff> 跳转至 </h6>#}
+                        <input type="text" id="page" name='page' size="1">
+                        {#                        <input type="hidden" name="order" value={{ lan_dict.order }}>#}
+                        {#                    <input type="hidden" name="search_content" value={{ lan_dict.search_content }}>#}
+                        <input type="hidden" name="Cpp" value={{ lan_dict.Cpp }}>
+                        <input type="hidden" name="C" value={{ lan_dict.C }}>
+                        <input type="hidden" name="Java" value={{ lan_dict.Java }}>
+                        <input type="hidden" name="JavaScript" value={{ lan_dict.JavaScript }}>
+                        <input type="hidden" name="SQL" value={{ lan_dict.SQL }}>
+                        <input type="hidden" name="PHP" value={{ lan_dict.PHP }}>
+                        <input type="hidden" name="Python" value={{ lan_dict.Python }}>
+                        <input type="hidden" name="Others" value={{ lan_dict.Others }}>
+
+                        <button type='submit' class="btn btn-default btn-sm">GO!</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

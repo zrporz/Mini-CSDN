@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='{% static "plugins/bootstrap-3.4.1/css/bootstrap.css" %}'>
+    <title>Title</title>
+    <style>
+        .thumbnail {
+            height: 400px
+        }
+
+        .affix {
+            top: 0;
+            width: 100%;
+            z-index: 9999 !important;
+        }
+
+        .affix + .container-fluid {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="0">
+    <ul class="nav navbar-nav">
+        <li ><a href="/start">主页</a></li>
+        <li><a href="/show/?category=All">所有博客</a></li>
+        <li class="active"><a href="/category">博客分类</a></li>
+    </ul>
+</nav>
+<div style="background-image: url({% static 'img/background/BingWallpaper.jpg' %});">
+    <div class="container-fluid">
+        <div class="container">
+            <br>
+            <div class="row">
+                <a href="{% url 'show' %}?category=All">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="thumbnail">
+                            <img src={% static "img/background/All.jfif" %} alt="...">
+
+                            <div class="caption text-center">
+                                <h3>所有博客</h3>
+                                <p>共 {{ AllNum }} 篇</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="{% url 'show' %}?category=Cpp">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src={% static "img/background/Cpp.jfif" %} alt="...">
+
+                            <div class="caption text-center">
+                                <h3>C++</h3>
+                                <p>共 {{ Data.Cpp }} 篇</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{% url 'show' %}?category=Python">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src={% static "img/background/Python.jfif" %} alt="...">
+                            <div class="caption text-center">
+                                <h3>Python</h3>
+                                <p>共 {{ Data.Python }} 篇</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{% url 'show' %}?category=Java">
+                    <div class="col-md-3">
+
+                        <div class="thumbnail">
+
+                            <img src={% static "img/background/Java.jfif" %} alt="...">
+                            <div class="caption text-center">
+                                <h3>Java</h3>
+                                <p>共 {{ Data.Java }} 篇</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <a href="{% url 'show' %}?category=JavaScript">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src={% static "img/background/Javascript.jfif" %} alt="...">
+                            <div class="caption text-center">
+                                <h3>JavaScript</h3>
+                                <p>共 {{ Data.JavaScript }} 篇</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{% url 'show' %}?category=Csharp">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src={% static "img/background/Csharp.jfif" %} alt="...">
+                            <div class="caption text-center">
+                                <h3>C#</h3>
+                                <p>共 {{ Data.Csharp }} 篇</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{% url 'show' %}?category=PHP">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src={% static "img/background/PHP.jfif" %} alt="...">
+                            <div class="caption text-center">
+                                <h3>PHP</h3>
+                                <p>共 {{ Data.PHP }} 篇</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{% url 'show' %}?category=SQL">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src={% static "img/background/SQL.jfif" %} alt="...">
+                            <div class="caption text-center">
+                                <h3>SQL</h3>
+                                <p>共 {{ Data.SQL }} 篇</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="{% url 'show' %}?category=Others">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src={% static "img/background/Others.jfif" %} alt="...">
+                            <div class="caption text-center">
+                                <h3>其它类型</h3>
+                                <p>共 {{ Data.Others }} 篇</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
